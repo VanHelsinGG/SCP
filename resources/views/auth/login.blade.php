@@ -110,11 +110,9 @@
                         </div>
                     </div>
                 @endif
-
                 <!-- Formulário -->
                 <form method="POST" action="{{ route('login') }}" class="space-y-5">
                     @csrf
-
                     <!-- CPF -->
                     <div>
                         <label

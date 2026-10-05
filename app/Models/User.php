@@ -55,6 +55,25 @@ class User extends Authenticatable
         ];
     }
 
+    public function getUserStatus(): string
+    {
+        return match ($this->status) {
+            'active' => 'Ativo',
+            'inactive' => 'Desativado',
+            'fired' => 'Desligado',
+        };
+    }
+
+    public function getRoleColor(): string
+    {
+        return match ($this->role) {
+            'sec' => 'bg-blue-100 text-blue-700',
+            'master' => 'bg-red-100 text-red-700',
+            'atdr' => 'bg-green-100 text-green-700',
+            'aux' => 'bg-orange-100 text-orange-700',
+        };
+    }
+
     public function isMaster(): bool
     {
         return $this->role === 'master';
